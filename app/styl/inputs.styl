@@ -1,0 +1,105 @@
+@import "~styl/colors"
+@import "~styl/fonts"
+@import "~styl/sizes"
+
+::placeholder
+  color rgba(#000, .3)
+  font-size 1em
+
+inputFocus()
+  outline none
+  border-color brandOrange
+  box-shadow 0 0 .0625em brandOrange
+
+textarea
+  resize none
+
+textarea,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"]
+  width 100%
+  font-family inherit
+  appearance none
+  -webkit-tap-highlight-color transparent
+  text-rendering optimizeLegibility
+  background #fff
+  padding .6em .8em
+
+  @media firefoxOnlyQuery
+    &:invalid
+      box-shadow none
+
+  &[disabled]
+    background transparent
+
+  &.standard
+    border 1px solid #cfcfcf
+    background lighterGray
+    padding .6em .8em
+    border-radius standardInputRadius
+
+    &:focus
+      inputFocus()
+      background #fff
+
+select.standard
+  appearance none
+  background-image url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 8'><g><polygon fill='rgba(0,0,0,0.734)' transform='translate%287.5, 4.5%29 scale%281, -1%29 translate%28-7.5, -4.5%29' points='7.5 1 14 8 1 8'></polygon></g></svg>")
+  -webkit-tap-highlight-color transparent
+  text-rendering optimizeLegibility
+  cursor pointer
+  display block
+  padding .6em 2.25em .6em .8em
+  border 1px solid lightLineGray
+  width 20em
+  max-width 100%
+  background-color lighterGray
+  font-family inherit
+  font-weight normal
+  selectArrow #444
+  background-repeat no-repeat
+  background-position right 45%
+  background-size 2.5em .6em
+
+  &:focus
+    inputFocus()
+
+  @media chromeOnlyQuery
+    selectArrow rgba(#000, .734) // #444
+
+  @media firefoxOnlyQuery
+    padding-right .6em
+    height 2.65em
+
+    option
+      padding .25em .4em
+      font-family sansSerifFonts
+
+      &:hover, &[selected]
+        background brandPink
+        color #fff
+
+@css {
+  /* Firefox version 30+ */
+  @supports (-moz-appearance: meterbar) and (background-blend-mode: difference, normal) {
+    select.standard {
+      padding-right: 0;
+      text-indent: -.09375em
+    }
+
+    select.standard option {
+      padding: .4em .8em
+    }
+  }
+}

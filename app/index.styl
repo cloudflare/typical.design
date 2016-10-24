@@ -1,0 +1,45 @@
+@import "~normalize.css/normalize.css"
+@import "~styl/fonts"
+@import "~styl/buttons"
+@import "~styl/more-links-and-buttons"
+@import "~styl/loading-dots"
+@import "~styl/form"
+@import "~styl/inputs"
+
+*, *::after, *::before
+  box-sizing border-box
+
+baseFontSize = 16px
+
+html
+  background #eee
+  color textColor
+
+html, body
+  width 100%
+  min-height 100vh
+
+body
+  overflow-y scroll
+
+svg
+  display block
+  width 100%
+  height 100%
+
+body
+  font-family sansSerifFonts
+  font-size baseFontSize
+
+[contenteditable]
+  div, footer, header, section
+    display block
+
+[data-flow]
+  display flex
+
+[data-flow="column"]
+  flex-flow column nowrap
+
+[data-flow="row"]
+  flex-flow row
