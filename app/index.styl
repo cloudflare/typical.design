@@ -10,6 +10,11 @@
   box-sizing border-box
 
 baseFontSize = 16px
+navHeight = 2.5em
+
+::selection
+  background selectionColor
+  textShadowToCropUnderline selectionColor
 
 html
   background #eee
@@ -20,6 +25,7 @@ html, body
   min-height 100vh
 
 body
+  padding-top navHeight
   overflow-y scroll
 
 svg
@@ -43,3 +49,79 @@ body
 
 [data-flow="row"]
   flex-flow row
+
+.main-nav
+  background-color alpha(brandPink, .2)
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  height navHeight
+
+  .nav-item
+    height 100%
+    padding 0 1.5em
+    border-left 1px solid transparent
+    cursor pointer
+
+    &:hover
+      background rgba(0, 0, 0, 0.05)
+
+    & + .nav-item
+      border-left-color rgba(0, 0, 0, 0.05)
+
+main
+  padding 4em
+
+.main-footer
+  a.made-by.button
+    display block
+    width 6em
+    max-width 100%
+    margin 0 auto .5em
+    padding 1.1em
+    text-align center
+    opacity 1
+    transition opacity .3s ease
+    will-change opacity
+    background #ccc
+    box-shadow none
+
+    > *
+      opacity .4
+
+    .label
+      display block
+      font-size .7em
+      font-weight 100
+      text-transform uppercase
+      letter-spacing .1em
+      text-indent @letter-spacing
+      margin-bottom 1em
+
+    svg
+      display block
+      width 100%
+      height auto
+
+      path
+        fill currentColor
+
+.blog-posts
+  .post
+    background-color rgba(255, 255, 255, 0.68)
+    border-radius 6px
+    padding 0 1em
+    line-height 1.65
+
+    > p::first-letter
+      color brandPinkDarkened
+      font-size 1.5em
+      letter-spacing .1em
+
+    > p:first-of-type::first-letter
+      font-size 3em
+
+    .timestamp
+      font-style italic
