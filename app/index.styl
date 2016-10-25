@@ -2,6 +2,7 @@
 @import "~styl/fonts"
 @import "~styl/buttons"
 @import "~styl/more-links-and-buttons"
+@import "~styl/media-query-variables"
 @import "~styl/loading-dots"
 @import "~styl/form"
 @import "~styl/inputs"
@@ -72,7 +73,10 @@ body
       border-left-color rgba(0, 0, 0, 0.05)
 
 main
-  padding 4em
+  padding 1.5em 4em
+
+  @media mobileMaxWidthQuery
+    padding 1em
 
 .main-footer
   a.made-by.button
@@ -108,13 +112,22 @@ main
       path
         fill currentColor
 
-.blog-posts
-  .post
-    background-color rgba(255, 255, 255, 0.68)
-    border-radius 6px
-    padding 0 1em
-    line-height 1.65
+.box
+  background-color rgba(255, 255, 255, 0.68)
+  border-radius 6px
+  padding 0 1em
+  line-height 1.65
 
+.content
+  flex-flow row
+
+  @media mobileMaxWidthQuery
+    flex-flow column
+
+.blog-posts
+  flex 1 1 auto
+
+  .post
     > p::first-letter
       color brandPinkDarkened
       font-size 1.5em
@@ -125,3 +138,11 @@ main
 
     .timestamp
       font-style italic
+
+.news
+  flex 0 0 20%
+  margin-left 1em
+
+  @media mobileMaxWidthQuery
+    margin 1em 0 0
+
