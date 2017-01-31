@@ -7,8 +7,11 @@
 @import "~styl/form"
 @import "~styl/inputs"
 
-*, *::after, *::before
+html
   box-sizing border-box
+
+*, *::after, *::before
+  box-sizing inherit
 
 baseFontSize = 16px
 navHeight = 2.5em
@@ -52,7 +55,7 @@ body
   flex-flow row
 
 .main-nav
-  background-color alpha(brandOrange, .2)
+  background #fff
   position fixed
   top 0
   right 0
@@ -60,6 +63,7 @@ body
   left 0
   z-index 1000000
   height navHeight
+  box-shadow 0 1px rgba(0, 0, 0, .15)
 
   .nav-item
     height 100%
@@ -67,14 +71,27 @@ body
     border-left 1px solid transparent
     cursor pointer
 
+    &:first-child
+      margin-left auto
+
+    &:last-child
+      margin-right auto
+
     &:hover
-      background rgba(0, 0, 0, 0.05)
+      background rgba(0, 0, 0, .05)
 
     & + .nav-item
-      border-left-color rgba(0, 0, 0, 0.05)
+      border-left-color rgba(0, 0, 0, .05)
 
 main
+  width 1280px
+  max-width 100%
+  margin-left auto
+  margin-right auto
   padding 1.5em 4em
+
+  @media (max-width 1000px)
+    padding 2em
 
   @media mobileMaxWidthQuery
     padding 1em
@@ -114,7 +131,7 @@ main
         fill currentColor
 
 .box
-  background-color rgba(255, 255, 255, 0.68)
+  background-color rgba(255, 255, 255, .68)
   border-radius 6px
   padding 0 1em
   line-height 1.65
@@ -122,28 +139,18 @@ main
 .content
   flex-flow row
 
-  @media mobileMaxWidthQuery
+  @media (max-width 1000px)
     flex-flow column
 
 .blog-posts
   flex 1 1 auto
 
-  .post
-    > p::first-letter
-      color brandPinkDarkened
-      font-size 1.5em
-      letter-spacing .1em
-
-    > p:first-of-type::first-letter
-      font-size 3em
-
-    .timestamp
-      font-style italic
+  .post .timestamp
+    color rgba(0, 0, 0, .5)
 
 .news
-  flex 0 0 20%
+  flex 0 0 33%
   margin-left 1em
 
-  @media mobileMaxWidthQuery
+  @media (max-width 1000px)
     margin 1em 0 0
-
