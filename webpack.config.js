@@ -51,7 +51,7 @@ $.plugins = [
     template: "app/index.pug"
   }),
   new CopyWebpackPlugin([
-    {from: "./app/external-assets", to: "external-assets"}
+    {from: "./app/assets/images", to: "assets/images"}
   ], {
     ignore: [".DS_Store"]
   })
